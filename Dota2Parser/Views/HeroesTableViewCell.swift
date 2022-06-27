@@ -18,6 +18,17 @@ class HeroesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         heroesImage.isHidden = true
     }
+    
+    func setMainAttrImage(for attr: String) {
+        switch attr {
+        case "str":
+            mainAttrImage.image = UIImage(named: "str")
+        case "agi":
+            mainAttrImage.image = UIImage(named: "agi")
+        default:
+            mainAttrImage.image = UIImage(named: "int")
+        }
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
