@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "DOTA-2-darkness-art-picture_3840x2160.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

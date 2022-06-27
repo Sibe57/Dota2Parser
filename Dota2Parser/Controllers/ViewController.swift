@@ -10,7 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
-    
+    var heroID: Int!
+    var heroName: String!
     var heroes: [Hero] = []
     
     override func viewDidLoad() {
@@ -19,8 +20,30 @@ class ViewController: UIViewController {
             self.heroes = heroes
             self.tableView.reloadData()
         }
+        
+    }
+    
+    //MARK: - Navigations
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let popularItemsViewControler = segue.destination as! PopularItemsTableViewController
+        popularItemsViewControler.heroID = heroID
+        popularItemsViewControler.heroName = heroName
     }
 }
+
+
+
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hero = heroes[indexPath.row]
+        heroID = hero.id
+        heroName = hero.localizedName.uppercased()
+        performSegue(withIdentifier: "toPopularItems", sender: self)
+    }
+}
+
+
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,18 +52,19 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let hero = heroes[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "heroCell",
             for: indexPath) as! HeroesTableViewCell
+        
         cell.heroName.text = hero.localizedName.uppercased()
         cell.roles.text = String(hero.roles.joined(separator: " "))
         cell.setMainAttrImage(for: hero.primaryAttr)
         
-        NetworkManager.getHeroImage(for: hero.img) { heroImage in
+        NetworkManager.getDota2Image(for: hero.img) { heroImage in
             cell.heroesImage.isHidden = false
             cell.heroesImage.image = heroImage
         }
-        
         return cell
     }
 }

@@ -38,8 +38,10 @@ class NetworkManager {
     }
     
     
-    static func getHeroImage(for url: String, completion: @escaping (_ heroImage: UIImage) -> Void) {
-        
+    static func getDota2Image(
+        for url: String,
+        completion: @escaping (_ dota2Image: UIImage) -> Void
+    ) {
         let prefix = "http://cdn.dota2.com"
         guard let url = URL(string: prefix + url) else { return }
         
@@ -48,6 +50,51 @@ class NetworkManager {
             let image = UIImage(data: data) ?? UIImage()
             DispatchQueue.main.async {
                 completion(image)
+            }
+        }.resume()
+    }
+    
+    static func getPopularItems(
+        for heroID: Int,
+        completion: @escaping (_ popularItems: PopularItems) -> Void
+    ) {
+        guard let url = URL(string: "https://api.opendota.com/api/heroes/\(heroID)/itemPopularity")
+        else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let popularItems = try decoder.decode(PopularItems.self, from: data)
+                DispatchQueue.main.async {
+                    completion(popularItems)
+                }
+            } catch {
+                print(error)
+            }
+        }.resume()
+    }
+    
+    static func getItems(completiom: @escaping (_ items: [Item]) -> Void) {
+        guard let url = URL(string: "https://api.opendota.com/api/constants/items")
+        else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, errors in
+            guard let data = data else { return }
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let itemsDict  = try decoder.decode([String: Item].self, from: data)
+                var items: [Item] = []
+                for (_, item) in itemsDict {
+                    items.append(item)
+                }
+                DispatchQueue.main.async {
+                    completiom(items)
+                }
+            } catch {
+                print(error)
             }
         }.resume()
     }

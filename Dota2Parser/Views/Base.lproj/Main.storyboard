@@ -18,6 +18,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cXd-nj-UwF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heroCell" id="Sfk-TM-RY1" customClass="HeroesTableViewCell" customModule="Dota2Parser" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
@@ -49,6 +50,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="J0x-g4-922" firstAttribute="centerX" secondItem="zu4-iO-6tc" secondAttribute="centerX" id="3Am-Xp-rsX"/>
                                                 <constraint firstItem="zu4-iO-6tc" firstAttribute="leading" secondItem="7od-jD-PNY" secondAttribute="trailing" id="4R7-5p-Olb"/>
@@ -65,6 +68,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="7od-jD-PNY" secondAttribute="bottom" constant="4" id="xpm-V7-Qz0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="heroName" destination="vdK-BZ-fPI" id="ZP4-Yc-01n"/>
                                             <outlet property="heroesImage" destination="7od-jD-PNY" id="SyV-qt-dPf"/>
@@ -98,14 +102,17 @@
             </objects>
             <point key="canvasLocation" x="679.71014492753625" y="65.625"/>
         </scene>
-        <!--Popular Items Table View Controller-->
+        <!--123-->
         <scene sceneID="1AQ-B8-xwL">
             <objects>
                 <tableViewController id="jUt-iv-sPD" customClass="PopularItemsTableViewController" customModule="Dota2Parser" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="7cD-wz-h9D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="oQ0-59-Lvb">
                                 <rect key="frame" x="0.0" y="49.5" width="414" height="43.5"/>
@@ -113,7 +120,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oQ0-59-Lvb" id="htR-B4-QS0">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -121,11 +130,11 @@
                             <outlet property="delegate" destination="jUt-iv-sPD" id="p46-BO-vNm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KVs-z9-PjJ"/>
+                    <navigationItem key="navigationItem" title="123" id="KVs-z9-PjJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlx-DD-ar9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1771" y="66"/>
+            <point key="canvasLocation" x="1769.5652173913045" y="65.625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kbE-Vg-xxi">

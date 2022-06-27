@@ -9,8 +9,12 @@ import UIKit
 
 class PopularItemsTableViewController: UITableViewController {
     
+    var heroID: Int!
     var popularItems: PopularItems!
-    var itemDict: [String: String] = [:]
+    var items: [Int :Item] = [:]
+    var heroName = ""
+    
+
     var startItems: [(String, Int)] = []
     var earlyItems: [(String, Int)] = []
     var midItems: [(String, Int)] = []
@@ -18,11 +22,30 @@ class PopularItemsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
+        tableView.backgroundView?.contentMode = .scaleAspectFill
+        navigationItem.title = heroName
+        NetworkManager.getPopularItems(for: heroID) { popularItems in
+            self.popularItems = popularItems
+            self.createListsOfItems()
+            self.tableView.reloadData()
+            
+        }
+        NetworkManager.getItems() { items in
+            for item in items {
+                self.items[item.id] = item
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func createListsOfItems() {
         startItems = popularItems.startGameItems.sorted { $0.value > $1.value}
         earlyItems = popularItems.earlyGameItems.sorted { $0.value > $1.value}
         midItems = popularItems.midGameItems.sorted { $0.value > $1.value}
         lateItems = popularItems.lateGameItems.sorted { $0.value > $1.value}
     }
+
 
     // MARK: - Table view data source
 
@@ -66,18 +89,19 @@ class PopularItemsTableViewController: UITableViewController {
         
         switch indexPath.section {
         case 0:
-            configure.text = "\(itemDict[startItems[indexPath.row].0] ?? "")"
+            configure.text = "\(items[Int(startItems[indexPath.row].0)!]?.dname ?? "")"
             configure.secondaryText = "Rate of buy: \(startItems[indexPath.row].1)"
         case 1:
-            configure.text = "\(itemDict[earlyItems[indexPath.row].0] ?? "")"
+            configure.text = "\(items[Int(earlyItems[indexPath.row].0)!]?.dname ?? "")"
             configure.secondaryText = "Rate of buy: \(earlyItems[indexPath.row].1)"
         case 2:
-            configure.text = "\(itemDict[midItems[indexPath.row].0] ?? "")"
+            configure.text = "\(items[Int(midItems[indexPath.row].0)!]?.dname ?? "")"
             configure.secondaryText = "Rate of buy: \(midItems[indexPath.row].1)"
         default:
-            configure.text = "\(itemDict[lateItems[indexPath.row].0] ?? "")"
+            configure.text = "\(items[Int(lateItems[indexPath.row].0)!]?.dname ?? "")"
             configure.secondaryText = "Rate of buy: \(lateItems[indexPath.row].1)"
         }
+        cell.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0)
         cell.contentConfiguration = configure
 
         return cell
