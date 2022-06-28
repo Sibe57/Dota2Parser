@@ -17,7 +17,8 @@
 		02725EB728663C04000FF940 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02725EB628663C03000FF940 /* Hero.swift */; };
 		02A7C52C2868A90D000B20CA /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C52B2868A90D000B20CA /* Items.swift */; };
 		02A7C52E2868B0CF000B20CA /* PopularItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C52D2868B0CF000B20CA /* PopularItemsTableViewController.swift */; };
-		02A7C5302869B129000B20CA /* HeroesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C52F2869B129000B20CA /* HeroesTableViewCell.swift */; };
+		02A7C5302869B129000B20CA /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C52F2869B129000B20CA /* HeroTableViewCell.swift */; };
+		02A7C535286ADE23000B20CA /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C534286ADE23000B20CA /* ItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		02725EB628663C03000FF940 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		02A7C52B2868A90D000B20CA /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		02A7C52D2868B0CF000B20CA /* PopularItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularItemsTableViewController.swift; sourceTree = "<group>"; };
-		02A7C52F2869B129000B20CA /* HeroesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesTableViewCell.swift; sourceTree = "<group>"; };
+		02A7C52F2869B129000B20CA /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
+		02A7C534286ADE23000B20CA /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				02725EA628663A74000FF940 /* Main.storyboard */,
-				02A7C52F2869B129000B20CA /* HeroesTableViewCell.swift */,
+				02A7C52F2869B129000B20CA /* HeroTableViewCell.swift */,
+				02A7C534286ADE23000B20CA /* ItemTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,9 +181,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A7C52C2868A90D000B20CA /* Items.swift in Sources */,
+				02A7C535286ADE23000B20CA /* ItemTableViewCell.swift in Sources */,
 				02725EB728663C04000FF940 /* Hero.swift in Sources */,
 				02725EB528663AAC000FF940 /* NetworkManager.swift in Sources */,
-				02A7C5302869B129000B20CA /* HeroesTableViewCell.swift in Sources */,
+				02A7C5302869B129000B20CA /* HeroTableViewCell.swift in Sources */,
 				02725EA528663A74000FF940 /* ViewController.swift in Sources */,
 				02A7C52E2868B0CF000B20CA /* PopularItemsTableViewController.swift in Sources */,
 				02725EA128663A74000FF940 /* AppDelegate.swift in Sources */,

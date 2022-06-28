@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         popularItemsViewControler.heroID = heroID
         popularItemsViewControler.heroName = heroName
     }
+    
+    
 }
 
 
@@ -55,7 +57,7 @@ extension ViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "heroCell",
-            for: indexPath) as! HeroesTableViewCell
+            for: indexPath) as! HeroTableViewCell
         
         cell.heroName.text = hero.localizedName.uppercased()
         cell.roles.text = String(hero.roles.joined(separator: " "))

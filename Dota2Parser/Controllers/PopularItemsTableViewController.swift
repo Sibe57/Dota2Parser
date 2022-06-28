@@ -83,26 +83,36 @@ class PopularItemsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-
-        var configure = cell.defaultContentConfiguration()
-        
+        let item: Item?
         switch indexPath.section {
         case 0:
-            configure.text = "\(items[Int(startItems[indexPath.row].0)!]?.dname ?? "")"
-            configure.secondaryText = "Rate of buy: \(startItems[indexPath.row].1)"
+            item = items[Int(startItems[indexPath.row].0)!] ?? nil
         case 1:
-            configure.text = "\(items[Int(earlyItems[indexPath.row].0)!]?.dname ?? "")"
-            configure.secondaryText = "Rate of buy: \(earlyItems[indexPath.row].1)"
+            item = items[Int(earlyItems[indexPath.row].0)!] ?? nil
         case 2:
-            configure.text = "\(items[Int(midItems[indexPath.row].0)!]?.dname ?? "")"
-            configure.secondaryText = "Rate of buy: \(midItems[indexPath.row].1)"
+            item = items[Int(midItems[indexPath.row].0)!] ?? nil
         default:
-            configure.text = "\(items[Int(lateItems[indexPath.row].0)!]?.dname ?? "")"
-            configure.secondaryText = "Rate of buy: \(lateItems[indexPath.row].1)"
+            item = items[Int(lateItems[indexPath.row].0)!] ?? nil
         }
-        cell.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0)
-        cell.contentConfiguration = configure
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell") as!
+        ItemTableViewCell
+        
+        guard let item = item else {
+            return cell
+        }
+
+        if let cost = item.cost {
+            cell.itemCost.text = String(cost)
+        } else {
+            cell.itemCost.isHidden = true
+            cell.goldImage.isHidden = true
+        }
+        cell.itemName.text = item.dname?.uppercased()
+        
+        NetworkManager.getDota2Image(for: item.img) { dota2Image in
+            cell.itemImage.image = dota2Image
+            cell.itemImage.isHidden = false
+        }
 
         return cell
     }

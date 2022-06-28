@@ -16,11 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" id="2o7-OX-c2q">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cXd-nj-UwF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heroCell" id="Sfk-TM-RY1" customClass="HeroesTableViewCell" customModule="Dota2Parser" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heroCell" id="Sfk-TM-RY1" customClass="HeroTableViewCell" customModule="Dota2Parser" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sfk-TM-RY1" id="6S8-Db-x52">
@@ -33,13 +37,13 @@
                                                         <constraint firstAttribute="width" secondItem="7od-jD-PNY" secondAttribute="height" multiplier="2:1" id="pnq-5S-niR"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agi" translatesAutoresizingMaskIntoConstraints="NO" id="zu4-iO-6tc" userLabel="mainAttrImage">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="agi" translatesAutoresizingMaskIntoConstraints="NO" id="zu4-iO-6tc" userLabel="mainAttrImage">
                                                     <rect key="frame" x="204" y="4" width="190" height="92"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANTI MAGE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdK-BZ-fPI">
                                                     <rect key="frame" x="204" y="8" width="190" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -106,23 +110,81 @@
         <scene sceneID="1AQ-B8-xwL">
             <objects>
                 <tableViewController id="jUt-iv-sPD" customClass="PopularItemsTableViewController" customModule="Dota2Parser" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="7cD-wz-h9D">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="52" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="7cD-wz-h9D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="oQ0-59-Lvb">
-                                <rect key="frame" x="0.0" y="49.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="oQ0-59-Lvb" customClass="ItemTableViewCell" customModule="Dota2Parser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oQ0-59-Lvb" id="htR-B4-QS0">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blink" translatesAutoresizingMaskIntoConstraints="NO" id="0JI-as-VDX" userLabel="itemImage">
+                                            <rect key="frame" x="16" y="4" width="60.5" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="0JI-as-VDX" secondAttribute="height" multiplier="11:8" id="RDB-0C-Pfv"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vem-1y-qrf">
+                                            <rect key="frame" x="76.5" y="4" width="321.5" height="44"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLINK DAGGER" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4h-u5-Pez" userLabel="itemName">
+                                                    <rect key="frame" x="16" y="13.5" width="202" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gold" translatesAutoresizingMaskIntoConstraints="NO" id="35K-zW-hUn">
+                                                    <rect key="frame" x="281.5" y="10" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="35K-zW-hUn" secondAttribute="height" multiplier="1:1" id="hdo-21-FyH"/>
+                                                        <constraint firstAttribute="width" constant="24" id="otN-so-QhM"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2250" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbK-2d-dfi" userLabel="itemCost">
+                                                    <rect key="frame" x="234" y="11.5" width="43.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.85342925790000002" green="0.64764356609999996" blue="0.1245528236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.7495860927152318" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="35K-zW-hUn" secondAttribute="trailing" constant="16" id="1nt-dj-78J"/>
+                                                <constraint firstItem="H4h-u5-Pez" firstAttribute="leading" secondItem="vem-1y-qrf" secondAttribute="leading" constant="16" id="5tX-4f-pvY"/>
+                                                <constraint firstItem="H4h-u5-Pez" firstAttribute="centerY" secondItem="vem-1y-qrf" secondAttribute="centerY" id="7dr-P9-3QR"/>
+                                                <constraint firstItem="35K-zW-hUn" firstAttribute="centerY" secondItem="vem-1y-qrf" secondAttribute="centerY" id="8Gt-aq-6yb"/>
+                                                <constraint firstItem="FbK-2d-dfi" firstAttribute="centerY" secondItem="vem-1y-qrf" secondAttribute="centerY" id="EmI-bS-xA5"/>
+                                                <constraint firstItem="FbK-2d-dfi" firstAttribute="leading" secondItem="H4h-u5-Pez" secondAttribute="trailing" constant="16" id="UjM-Ot-B8w"/>
+                                                <constraint firstItem="35K-zW-hUn" firstAttribute="leading" secondItem="FbK-2d-dfi" secondAttribute="trailing" constant="4" id="ihn-TU-GaU"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="vem-1y-qrf" secondAttribute="bottom" constant="4" id="33K-Xr-LOa"/>
+                                        <constraint firstAttribute="bottom" secondItem="0JI-as-VDX" secondAttribute="bottom" constant="4" id="3Ks-WV-4JI"/>
+                                        <constraint firstItem="0JI-as-VDX" firstAttribute="top" secondItem="htR-B4-QS0" secondAttribute="top" constant="4" id="DMP-hU-jsp"/>
+                                        <constraint firstItem="0JI-as-VDX" firstAttribute="leading" secondItem="htR-B4-QS0" secondAttribute="leading" constant="16" id="FHl-ZH-QZy"/>
+                                        <constraint firstItem="vem-1y-qrf" firstAttribute="top" secondItem="htR-B4-QS0" secondAttribute="top" constant="4" id="KXe-qy-4sp"/>
+                                        <constraint firstAttribute="trailing" secondItem="vem-1y-qrf" secondAttribute="trailing" constant="16" id="iHO-Hh-uvt"/>
+                                        <constraint firstItem="vem-1y-qrf" firstAttribute="leading" secondItem="0JI-as-VDX" secondAttribute="trailing" id="uce-54-kOY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="goldImage" destination="35K-zW-hUn" id="Igs-dp-YZO"/>
+                                    <outlet property="itemCost" destination="FbK-2d-dfi" id="cY1-HI-jpQ"/>
+                                    <outlet property="itemImage" destination="0JI-as-VDX" id="kvL-4Y-jMl"/>
+                                    <outlet property="itemName" destination="H4h-u5-Pez" id="Bci-yj-Mlv"/>
+                                    <outlet property="rightView" destination="vem-1y-qrf" id="cOX-sj-3Vy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -157,6 +219,9 @@
     </scenes>
     <resources>
         <image name="agi" width="322" height="322"/>
+        <image name="background" width="3840" height="2160"/>
+        <image name="blink" width="88" height="64"/>
+        <image name="gold" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

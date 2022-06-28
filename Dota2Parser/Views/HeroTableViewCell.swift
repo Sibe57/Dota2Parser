@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroesTableViewCell: UITableViewCell {
+class HeroTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mainAttrImage: UIImageView!
     @IBOutlet weak var heroName: UILabel!
@@ -17,6 +17,7 @@ class HeroesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         heroesImage.isHidden = true
+        setCorners()
     }
     
     func setMainAttrImage(for attr: String) {
@@ -32,6 +33,17 @@ class HeroesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    private func setCorners() {
+        let rightPath = UIBezierPath(roundedRect: mainAttrImage.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: 10, height: 10))
+        let rightMaskLayer = CAShapeLayer()
+        rightMaskLayer.path = rightPath.cgPath
+        mainAttrImage.layer.mask = rightMaskLayer
+        let leftPath = UIBezierPath(roundedRect: heroesImage.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: 10, height: 10))
+        let leftMaskLayer = CAShapeLayer()
+        leftMaskLayer.path = leftPath.cgPath
+        heroesImage.layer.mask = leftMaskLayer
     }
 
 }
