@@ -19,6 +19,9 @@ class PopularItemsTableViewController: UITableViewController {
     
     let indicator = UIActivityIndicatorView()
     
+    var itemURL: String!
+    var itemName: String!
+    
     var downloadedComponent = 0
     
 
@@ -106,7 +109,14 @@ class PopularItemsTableViewController: UITableViewController {
         titleView.addSubview(heroIconPic)
         
         navigationItem.titleView = titleView
-       // titleView.sizeToFit()
+    }
+    
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let webViewController = segue.destination as! WebViewController
+        webViewController.url = itemURL
+        webViewController.contentName = itemName
     }
 
 
@@ -195,50 +205,28 @@ class PopularItemsTableViewController: UITableViewController {
 
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item: Item?
+        switch indexPath.section {
+        case 0:
+            item = items[Int(startItems[indexPath.row].0)!] ?? nil
+        case 1:
+            item = items[Int(earlyItems[indexPath.row].0)!] ?? nil
+        case 2:
+            item = items[Int(midItems[indexPath.row].0)!] ?? nil
+        default:
+            item = items[Int(lateItems[indexPath.row].0)!] ?? nil
+        }
+        guard let itemName = item?.dname else { return }
+        itemURL = "https://dota2.fandom.com/wiki/" +
+        itemName.replacingOccurrences(of: " ", with: "_")
+        self.itemName = itemName.uppercased()
+        performSegue(withIdentifier: "webInfo", sender: self)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+    
+    
+    
+

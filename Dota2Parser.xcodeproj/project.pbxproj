@@ -19,6 +19,7 @@
 		02A7C52E2868B0CF000B20CA /* PopularItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C52D2868B0CF000B20CA /* PopularItemsTableViewController.swift */; };
 		02A7C5302869B129000B20CA /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C52F2869B129000B20CA /* HeroTableViewCell.swift */; };
 		02A7C535286ADE23000B20CA /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C534286ADE23000B20CA /* ItemTableViewCell.swift */; };
+		02A7C537286C97A6000B20CA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7C536286C97A6000B20CA /* WebViewController.swift */; };
 		0DDCDF32DAE3ED0837494AEB /* Pods_Dota2Parser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415F65C66C12AB8EBF09FEDA /* Pods_Dota2Parser.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		02A7C52D2868B0CF000B20CA /* PopularItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularItemsTableViewController.swift; sourceTree = "<group>"; };
 		02A7C52F2869B129000B20CA /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		02A7C534286ADE23000B20CA /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		02A7C536286C97A6000B20CA /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		415F65C66C12AB8EBF09FEDA /* Pods_Dota2Parser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dota2Parser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3B3E27335C44C94C5637CE /* Pods-Dota2Parser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dota2Parser.debug.xcconfig"; path = "Target Support Files/Pods-Dota2Parser/Pods-Dota2Parser.debug.xcconfig"; sourceTree = "<group>"; };
 		F79011AD2AC98F55F8FF35C2 /* Pods-Dota2Parser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dota2Parser.release.xcconfig"; path = "Target Support Files/Pods-Dota2Parser/Pods-Dota2Parser.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				02725EA428663A74000FF940 /* ViewController.swift */,
+				02A7C536286C97A6000B20CA /* WebViewController.swift */,
 				02A7C52D2868B0CF000B20CA /* PopularItemsTableViewController.swift */,
 			);
 			path = Controllers;
@@ -130,7 +133,6 @@
 				5A3B3E27335C44C94C5637CE /* Pods-Dota2Parser.debug.xcconfig */,
 				F79011AD2AC98F55F8FF35C2 /* Pods-Dota2Parser.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -252,6 +254,7 @@
 				02A7C52C2868A90D000B20CA /* Items.swift in Sources */,
 				02A7C535286ADE23000B20CA /* ItemTableViewCell.swift in Sources */,
 				02725EB728663C04000FF940 /* Hero.swift in Sources */,
+				02A7C537286C97A6000B20CA /* WebViewController.swift in Sources */,
 				02725EB528663AAC000FF940 /* NetworkManager.swift in Sources */,
 				02A7C5302869B129000B20CA /* HeroTableViewCell.swift in Sources */,
 				02725EA528663A74000FF940 /* ViewController.swift in Sources */,

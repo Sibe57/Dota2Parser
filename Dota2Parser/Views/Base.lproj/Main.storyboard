@@ -113,7 +113,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="52" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="7cD-wz-h9D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,14 +202,18 @@
             </objects>
             <point key="canvasLocation" x="1712" y="78"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="26c-om-a4b">
             <objects>
-                <viewController id="59H-Ii-XKW" sceneMemberID="viewController">
+                <viewController id="59H-Ii-XKW" customClass="WebViewController" customModule="Dota2Parser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HdV-Xt-1AX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="9MA-tJ-iDn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKW-af-yco">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -219,15 +224,23 @@
                             </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RYV-o3-SlQ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9MA-tJ-iDn" secondAttribute="bottom" id="9Ne-W9-H6Z"/>
+                            <constraint firstItem="9MA-tJ-iDn" firstAttribute="top" secondItem="HdV-Xt-1AX" secondAttribute="top" id="Atm-BH-aEV"/>
+                            <constraint firstItem="9MA-tJ-iDn" firstAttribute="leading" secondItem="RYV-o3-SlQ" secondAttribute="leading" id="KSB-Se-BWB"/>
                             <constraint firstItem="RYV-o3-SlQ" firstAttribute="trailing" secondItem="fKW-af-yco" secondAttribute="trailing" id="NUf-cS-Aux"/>
+                            <constraint firstItem="RYV-o3-SlQ" firstAttribute="trailing" secondItem="9MA-tJ-iDn" secondAttribute="trailing" id="PKr-T1-bxy"/>
                             <constraint firstItem="RYV-o3-SlQ" firstAttribute="bottom" secondItem="fKW-af-yco" secondAttribute="bottom" id="Sy8-Xv-h29"/>
                             <constraint firstItem="fKW-af-yco" firstAttribute="leading" secondItem="RYV-o3-SlQ" secondAttribute="leading" id="W39-77-dFl"/>
                             <constraint firstItem="fKW-af-yco" firstAttribute="top" secondItem="RYV-o3-SlQ" secondAttribute="top" id="fM2-oG-3Gy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iV2-2b-8ur"/>
+                    <connections>
+                        <outlet property="webView" destination="fKW-af-yco" id="aFL-tM-pvX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GG2-pv-bzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
