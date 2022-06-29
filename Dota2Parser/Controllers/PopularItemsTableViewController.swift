@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class PopularItemsTableViewController: UITableViewController {
     
@@ -13,6 +14,9 @@ class PopularItemsTableViewController: UITableViewController {
     var popularItems: PopularItems!
     var items: [Int :Item] = [:]
     var heroName = ""
+    let indicator = UIActivityIndicatorView()
+    
+    var downloadedComponent = 0
     
 
     var startItems: [(String, Int)] = []
@@ -22,21 +26,31 @@ class PopularItemsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = heroName
+        fetchData()
+        setBackground()
+        setActivityIndicator()
+    }
+    
+    private func setBackground() {
         tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
         tableView.backgroundView?.contentMode = .scaleAspectFill
-        navigationItem.title = heroName
-        navigationItem.backButtonDisplayMode
+    }
+    
+    private func fetchData() {
         NetworkManager.getPopularItems(for: heroID) { popularItems in
             self.popularItems = popularItems
             self.createListsOfItems()
             self.tableView.reloadData()
-            
+            self.downloadedComponent += 1
         }
+        
         NetworkManager.getItems() { items in
             for item in items {
                 self.items[item.id] = item
             }
             self.tableView.reloadData()
+            self.downloadedComponent += 1
         }
     }
     
@@ -46,12 +60,18 @@ class PopularItemsTableViewController: UITableViewController {
         midItems = popularItems.midGameItems.sorted { $0.value > $1.value}
         lateItems = popularItems.lateGameItems.sorted { $0.value > $1.value}
     }
+    
+    private func setActivityIndicator () {
+        indicator.center = view.center
+        tableView.addSubview(indicator)
+        indicator.startAnimating()
+        
+    }
 
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 4
     }
 
@@ -66,20 +86,32 @@ class PopularItemsTableViewController: UITableViewController {
         default:
             return lateItems.count < 6 ? lateItems.count : 6
         }
-        
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard downloadedComponent == 2 else { return nil }
+        let headerLabel = UILabel()
+        headerLabel.layer.frame.origin.y += 20
+        headerLabel.textAlignment = .center
+        
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        
         switch section {
         case 0:
-            return "Items For Start"
+            headerLabel.text = "FOR START"
         case 1:
-            return "Items For Early Game"
+            headerLabel.text = "EARLY GAME"
         case 2:
-            return "Items For Mid Game"
+            headerLabel.text = "MID GAME"
         default:
-            return "Items For Late Game"
+            headerLabel.text = "LATE GAME"
         }
+        headerLabel.alpha = 0
+        UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+            headerLabel.alpha = 1
+        }, completion: nil)
+        return headerLabel
     }
 
     
@@ -101,6 +133,7 @@ class PopularItemsTableViewController: UITableViewController {
         guard let item = item else {
             return cell
         }
+        indicator.stopAnimating()
 
         if let cost = item.cost {
             cell.itemCost.text = String(cost)
@@ -114,6 +147,10 @@ class PopularItemsTableViewController: UITableViewController {
             cell.itemImage.image = dota2Image
             cell.itemImage.isHidden = false
         }
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseIn], animations: {
+            cell.alpha = 1
+        }, completion: nil)
 
         return cell
     }
