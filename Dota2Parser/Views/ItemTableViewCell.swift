@@ -13,11 +13,11 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var goldImage: UIImageView!
-    @IBOutlet weak var rightView: UIView!
+    @IBOutlet weak var backView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         itemImage.isHidden = true
-        setCorners()
+        backView.layer.cornerRadius = 10
         
     }
 
@@ -25,15 +25,6 @@ class ItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    private func setCorners() {
-        let rightPath = UIBezierPath(roundedRect: rightView.bounds, byRoundingCorners: [.topRight, .bottomRight], cornerRadii: CGSize(width: 10, height: 10))
-        let rightMaskLayer = CAShapeLayer()
-        rightMaskLayer.path = rightPath.cgPath
-        rightView.layer.mask = rightMaskLayer
-        let leftPath = UIBezierPath(roundedRect: rightView.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: 10, height: 10))
-        let leftMaskLayer = CAShapeLayer()
-        leftMaskLayer.path = leftPath.cgPath
-        itemImage.layer.mask = leftMaskLayer
-    }
+    
 
 }

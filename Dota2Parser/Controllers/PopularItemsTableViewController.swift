@@ -25,6 +25,7 @@ class PopularItemsTableViewController: UITableViewController {
         tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
         tableView.backgroundView?.contentMode = .scaleAspectFill
         navigationItem.title = heroName
+        navigationItem.backButtonDisplayMode
         NetworkManager.getPopularItems(for: heroID) { popularItems in
             self.popularItems = popularItems
             self.createListsOfItems()
