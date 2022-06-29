@@ -5,13 +5,14 @@
 //  Created by Федор Еронин on 24.06.2022.
 //
 
-import UIKit
+import Kingfisher
 
 class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     var heroID: Int!
     var heroName: String!
+    var heroIcon: String!
     var heroes: [Hero] = []
     
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
             self.heroes = heroes
             self.tableView.reloadData()
         }
+        navigationItem.backButtonDisplayMode = .minimal
         
     }
     
@@ -28,6 +30,7 @@ class ViewController: UIViewController {
         let popularItemsViewControler = segue.destination as! PopularItemsTableViewController
         popularItemsViewControler.heroID = heroID
         popularItemsViewControler.heroName = heroName
+        popularItemsViewControler.heroIcon = heroIcon
     }
     
     
@@ -41,6 +44,7 @@ extension ViewController: UITableViewDelegate {
         let hero = heroes[indexPath.row]
         heroID = hero.id
         heroName = hero.localizedName.uppercased()
+        heroIcon = hero.icon
         performSegue(withIdentifier: "toPopularItems", sender: self)
     }
 }

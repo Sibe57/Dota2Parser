@@ -5,15 +5,18 @@
 //  Created by Федор Еронин on 26.06.2022.
 //
 
-import UIKit
-import SwiftUI
+import Kingfisher
 
 class PopularItemsTableViewController: UITableViewController {
     
     var heroID: Int!
+    
     var popularItems: PopularItems!
     var items: [Int :Item] = [:]
-    var heroName = ""
+    
+    var heroName: String!
+    var heroIcon: String!
+    
     let indicator = UIActivityIndicatorView()
     
     var downloadedComponent = 0
@@ -25,12 +28,15 @@ class PopularItemsTableViewController: UITableViewController {
     var lateItems: [(String, Int)] = []
     
     override func viewDidLoad() {
+        navigationItem.backButtonTitle = ""
         super.viewDidLoad()
-        navigationItem.title = heroName
         fetchData()
         setBackground()
         setActivityIndicator()
+        setTitle()
     }
+    
+
     
     private func setBackground() {
         tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
@@ -63,9 +69,44 @@ class PopularItemsTableViewController: UITableViewController {
     
     private func setActivityIndicator () {
         indicator.center = view.center
+        indicator.style = .large
         tableView.addSubview(indicator)
         indicator.startAnimating()
         
+    }
+    
+    private func setTitle() {
+        
+        let titlelabel = UILabel()
+        titlelabel.text = "  " + heroName
+        titlelabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titlelabel.sizeToFit()
+        titlelabel.textAlignment = .center
+        
+        let titleView = UIView()
+        titlelabel.center = titleView.center
+        
+        guard let url = URL(string: "http://cdn.dota2.com" + heroIcon)
+        else { return }
+        let heroIconPic = UIImageView()
+        heroIconPic.kf.setImage(with: url, placeholder: UIImage(named: "heroIconPlaceholder"))
+        guard let _ = heroIconPic.image else { return }
+        let heroIconAspect = heroIconPic.image!.size.width /
+        heroIconPic.image!.size.height
+        heroIconPic.frame = CGRect(
+            x: titlelabel.frame.origin.x -
+            titlelabel.frame.size.height * heroIconAspect,
+            y: titlelabel.frame.origin.y,
+            width: titlelabel.frame.size.height * heroIconAspect,
+            height: titlelabel.frame.size.height
+        )
+        heroIconPic.contentMode = .scaleAspectFill
+        
+        titleView.addSubview(titlelabel)
+        titleView.addSubview(heroIconPic)
+        
+        navigationItem.titleView = titleView
+       // titleView.sizeToFit()
     }
 
 

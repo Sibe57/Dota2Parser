@@ -13,6 +13,7 @@ struct Hero: Decodable {
     let primaryAttr: String
     let attackType: String
     let img: String
+    let icon: String
     let roles: [String]
 }
 
