@@ -22,7 +22,6 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
         }
         navigationItem.backButtonDisplayMode = .minimal
-        
     }
     
     //MARK: - Navigations
@@ -32,12 +31,7 @@ class ViewController: UIViewController {
         popularItemsViewControler.heroName = heroName
         popularItemsViewControler.heroIcon = heroIcon
     }
-    
-    
 }
-
-
-
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
