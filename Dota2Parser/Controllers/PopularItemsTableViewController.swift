@@ -10,12 +10,15 @@ import Kingfisher
 class PopularItemsTableViewController: UITableViewController {
     
     var heroID: Int!
+    var heroName: String!
+    var heroIcon: String!
     
     var popularItems: PopularItems!
     var items: [Int :Item] = [:]
-    
-    var heroName: String!
-    var heroIcon: String!
+    var startItems: [(String, Int)] = []
+    var earlyItems: [(String, Int)] = []
+    var midItems: [(String, Int)] = []
+    var lateItems: [(String, Int)] = []
     
     let indicator = UIActivityIndicatorView()
     
@@ -24,11 +27,6 @@ class PopularItemsTableViewController: UITableViewController {
     
     var downloadedComponent = 0
     
-
-    var startItems: [(String, Int)] = []
-    var earlyItems: [(String, Int)] = []
-    var midItems: [(String, Int)] = []
-    var lateItems: [(String, Int)] = []
     
     override func viewDidLoad() {
         navigationItem.backButtonTitle = ""
@@ -39,12 +37,12 @@ class PopularItemsTableViewController: UITableViewController {
         setTitle()
     }
     
-
     
     private func setBackground() {
         tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
         tableView.backgroundView?.contentMode = .scaleAspectFill
     }
+    
     
     private func fetchData() {
         NetworkManager.getPopularItems(for: heroID) { popularItems in
@@ -63,6 +61,7 @@ class PopularItemsTableViewController: UITableViewController {
         }
     }
     
+    
     private func createListsOfItems() {
         startItems = popularItems.startGameItems.sorted { $0.value > $1.value}
         earlyItems = popularItems.earlyGameItems.sorted { $0.value > $1.value}
@@ -70,13 +69,14 @@ class PopularItemsTableViewController: UITableViewController {
         lateItems = popularItems.lateGameItems.sorted { $0.value > $1.value}
     }
     
+    
     private func setActivityIndicator () {
         indicator.center = view.center
         indicator.style = .large
         tableView.addSubview(indicator)
         indicator.startAnimating()
-        
     }
+    
     
     private func setTitle() {
         
@@ -125,6 +125,7 @@ class PopularItemsTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -138,6 +139,7 @@ class PopularItemsTableViewController: UITableViewController {
             return lateItems.count < 6 ? lateItems.count : 6
         }
     }
+    
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -159,7 +161,7 @@ class PopularItemsTableViewController: UITableViewController {
             headerLabel.text = "LATE GAME"
         }
         headerLabel.alpha = 0
-        UIView.animate(withDuration: 0.25, delay: 0, options: [], animations: {
+        UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
             headerLabel.alpha = 1
         }, completion: nil)
         return headerLabel
@@ -199,12 +201,13 @@ class PopularItemsTableViewController: UITableViewController {
             cell.itemImage.isHidden = false
         }
         cell.alpha = 0
-        UIView.animate(withDuration: 0.25, delay: 0, options: [.curveEaseIn], animations: {
+        UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
             cell.alpha = 1
         }, completion: nil)
 
         return cell
     }
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item: Item?
