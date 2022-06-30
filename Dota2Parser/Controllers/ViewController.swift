@@ -10,15 +10,22 @@ import Kingfisher
 class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    
     var heroID: Int!
     var heroName: String!
     var heroIcon: String!
     var heroes: [Hero] = []
+    var filteredHeroes: [Hero] = []
+    
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         NetworkManager.getHeroes { heroes in
             self.heroes = heroes
+            self.filteredHeroes = heroes
             self.tableView.reloadData()
         }
         navigationItem.backButtonDisplayMode = .minimal
@@ -35,7 +42,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let hero = heroes[indexPath.row]
+        let hero = filteredHeroes[indexPath.row]
         heroID = hero.id
         heroName = hero.localizedName.uppercased()
         heroIcon = hero.icon
@@ -47,11 +54,11 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return heroes.count
+        return filteredHeroes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let hero = heroes[indexPath.row]
+        let hero = filteredHeroes[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "heroCell",
@@ -66,6 +73,17 @@ extension ViewController: UITableViewDataSource {
             cell.heroesImage.image = heroImage
         }
         return cell
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredHeroes = searchText.isEmpty ? heroes : heroes.filter {(hero: Hero) -> Bool in
+            let name = hero.localizedName
+            return name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        tableView.reloadData()
     }
 }
 
