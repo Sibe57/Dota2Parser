@@ -196,10 +196,12 @@ class PopularItemsTableViewController: UITableViewController {
         }
         cell.itemName.text = item.dname?.uppercased()
         
-        NetworkManager.getDota2Image(for: item.img) { dota2Image in
-            cell.itemImage.image = dota2Image
-            cell.itemImage.isHidden = false
+        guard let url = URL(string: "http://cdn.dota2.com" + item.img) else {
+            return cell
         }
+        
+        cell.itemImage.kf.setImage(with: url)
+        
         cell.alpha = 0
         UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
             cell.alpha = 1

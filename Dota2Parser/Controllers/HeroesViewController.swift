@@ -42,6 +42,8 @@ class HeroesViewController: UIViewController {
         popularItemsViewControler.heroName = heroName
         popularItemsViewControler.heroIcon = heroIcon
     }
+    
+    
 }
 
 extension HeroesViewController: UITableViewDelegate {
@@ -50,6 +52,7 @@ extension HeroesViewController: UITableViewDelegate {
         heroID = hero.id
         heroName = hero.localizedName.uppercased()
         heroIcon = hero.icon
+
         performSegue(withIdentifier: "toPopularItems", sender: self)
     }
 }
@@ -72,10 +75,11 @@ extension HeroesViewController: UITableViewDataSource {
         cell.roles.text = String(hero.roles.joined(separator: " "))
         cell.setMainAttrImage(for: hero.primaryAttr)
         
-        NetworkManager.getDota2Image(for: hero.img) { heroImage in
-            cell.heroesImage.isHidden = false
-            cell.heroesImage.image = heroImage
+        guard let url = URL(string: "http://cdn.dota2.com" + hero.img) else {
+            return cell
         }
+        cell.heroesImage.kf.setImage(with: url)
+
         return cell
     }
 }
