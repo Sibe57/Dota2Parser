@@ -7,20 +7,21 @@
 
 import Kingfisher
 
-class ViewController: UIViewController {
+class HeroesViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var heroID: Int!
-    var heroName: String!
-    var heroIcon: String!
-    var heroes: [Hero] = []
-    var filteredHeroes: [Hero] = []
+    private var heroID: Int!
+    private var heroName: String!
+    private var heroIcon: String!
+    private var heroes: [Hero] = []
+    private var filteredHeroes: [Hero] = []
     
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         searchBar.delegate = self
         NetworkManager.getHeroes { heroes in
@@ -33,14 +34,17 @@ class ViewController: UIViewController {
     
     //MARK: - Navigations
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let popularItemsViewControler = segue.destination as! PopularItemsTableViewController
+        
+        let popularItemsViewControler = segue.destination as!
+            PopularItemsTableViewController
+        
         popularItemsViewControler.heroID = heroID
         popularItemsViewControler.heroName = heroName
         popularItemsViewControler.heroIcon = heroIcon
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension HeroesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hero = filteredHeroes[indexPath.row]
         heroID = hero.id
@@ -52,7 +56,7 @@ extension ViewController: UITableViewDelegate {
 
 
 
-extension ViewController: UITableViewDataSource {
+extension HeroesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredHeroes.count
     }
@@ -76,12 +80,15 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension HeroesViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredHeroes = searchText.isEmpty ? heroes : heroes.filter {(hero: Hero) -> Bool in
             let name = hero.localizedName
-            return name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            return name.range(of: searchText,
+                              options: .caseInsensitive,
+                              range: nil,
+                              locale: nil) != nil
         }
         tableView.reloadData()
     }
