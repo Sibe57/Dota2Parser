@@ -16,7 +16,6 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var backView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        itemImage.isHidden = true
         backView.layer.cornerRadius = 10
         
     }

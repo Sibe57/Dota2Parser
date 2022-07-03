@@ -14,11 +14,6 @@ class HeroTableViewCell: UITableViewCell {
     @IBOutlet weak var roles: UILabel!
     @IBOutlet weak var heroesImage: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        heroesImage.isHidden = true
-    }
-    
     func setMainAttrImage(for attr: String) {
         switch attr {
         case "str":
@@ -29,9 +24,4 @@ class HeroTableViewCell: UITableViewCell {
             mainAttrImage.image = UIImage(named: "int")
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }
