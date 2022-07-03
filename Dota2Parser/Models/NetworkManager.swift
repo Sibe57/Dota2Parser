@@ -37,23 +37,6 @@ class NetworkManager {
         }.resume()
     }
     
-    
-    static func getDota2Image(
-        for url: String,
-        completion: @escaping (_ dota2Image: UIImage) -> Void
-    ) {
-        let prefix = "http://cdn.dota2.com"
-        guard let url = URL(string: prefix + url) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
-            let image = UIImage(data: data) ?? UIImage()
-            DispatchQueue.main.async {
-                completion(image)
-            }
-        }.resume()
-    }
-    
     static func getPopularItems(
         for heroID: Int,
         completion: @escaping (_ popularItems: PopularItems) -> Void
