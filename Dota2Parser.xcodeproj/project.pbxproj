@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		02725EA128663A74000FF940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02725EA028663A74000FF940 /* AppDelegate.swift */; };
 		02725EA328663A74000FF940 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02725EA228663A74000FF940 /* SceneDelegate.swift */; };
-		02725EA528663A74000FF940 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02725EA428663A74000FF940 /* ViewController.swift */; };
+		02725EA528663A74000FF940 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02725EA428663A74000FF940 /* HeroesViewController.swift */; };
 		02725EA828663A74000FF940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02725EA628663A74000FF940 /* Main.storyboard */; };
 		02725EAA28663A74000FF940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02725EA928663A74000FF940 /* Assets.xcassets */; };
 		02725EAD28663A74000FF940 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02725EAB28663A74000FF940 /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		02725E9D28663A74000FF940 /* Dota2Parser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dota2Parser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02725EA028663A74000FF940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02725EA228663A74000FF940 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		02725EA428663A74000FF940 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		02725EA428663A74000FF940 /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
 		02725EA728663A74000FF940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02725EA928663A74000FF940 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02725EAC28663A74000FF940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		02A7C5332869C55F000B20CA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				02725EA428663A74000FF940 /* ViewController.swift */,
+				02725EA428663A74000FF940 /* HeroesViewController.swift */,
 				02A7C536286C97A6000B20CA /* WebViewController.swift */,
 				02A7C52D2868B0CF000B20CA /* PopularItemsTableViewController.swift */,
 			);
@@ -257,7 +257,7 @@
 				02A7C537286C97A6000B20CA /* WebViewController.swift in Sources */,
 				02725EB528663AAC000FF940 /* NetworkManager.swift in Sources */,
 				02A7C5302869B129000B20CA /* HeroTableViewCell.swift in Sources */,
-				02725EA528663A74000FF940 /* ViewController.swift in Sources */,
+				02725EA528663A74000FF940 /* HeroesViewController.swift in Sources */,
 				02A7C52E2868B0CF000B20CA /* PopularItemsTableViewController.swift in Sources */,
 				02725EA128663A74000FF940 /* AppDelegate.swift in Sources */,
 				02725EA328663A74000FF940 /* SceneDelegate.swift in Sources */,
