@@ -13,19 +13,19 @@ class PopularItemsTableViewController: UITableViewController {
     var heroName: String!
     var heroIcon: String!
     
-    var popularItems: PopularItems!
-    var items: [Int :Item] = [:]
-    var startItems: [(String, Int)] = []
-    var earlyItems: [(String, Int)] = []
-    var midItems: [(String, Int)] = []
-    var lateItems: [(String, Int)] = []
+    private var popularItems: PopularItems!
+    private var items: [Int :Item] = [:]
+    private var startItems: [(String, Int)] = []
+    private var earlyItems: [(String, Int)] = []
+    private var midItems: [(String, Int)] = []
+    private var lateItems: [(String, Int)] = []
     
-    let indicator = UIActivityIndicatorView()
+    private let indicator = UIActivityIndicatorView()
     
-    var itemURL: String!
-    var itemName: String!
+    private var itemURL: String!
+    private var itemName: String!
     
-    var downloadedComponent = 0
+    private var downloadedComponent = 0
     
     
     override func viewDidLoad() {
