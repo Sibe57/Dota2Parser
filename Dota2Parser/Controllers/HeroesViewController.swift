@@ -47,15 +47,20 @@ class HeroesViewController: UIViewController {
 }
 
 extension HeroesViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hero = filteredHeroes[indexPath.row]
         heroID = hero.id
         heroName = hero.localizedName.uppercased()
         heroIcon = hero.icon
-        UIView.animate(withDuration: 0.5) {
-            self.tableView.cellForRow(at: indexPath)?.alpha = 0
+        let cell =  self.tableView.cellForRow(at: indexPath)
+        guard let cell = cell else { return }
+        UIView.animate(withDuration: 0.1) {
+            cell.transform = cell.transform.scaledBy(x: 0.9, y: 0.9)
         } completion: {_ in
-            self.tableView.cellForRow(at: indexPath)?.alpha = 1
+            UIView.animate(withDuration: 0.05) {
+                cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
         }
 
         performSegue(withIdentifier: "toPopularItems", sender: self)
