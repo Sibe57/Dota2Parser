@@ -55,10 +55,10 @@ extension HeroesViewController: UITableViewDelegate {
         heroIcon = hero.icon
         let cell =  self.tableView.cellForRow(at: indexPath)
         guard let cell = cell else { return }
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.1,delay: 0, options:[.curveEaseOut]) {
             cell.transform = cell.transform.scaledBy(x: 0.9, y: 0.9)
         } completion: {_ in
-            UIView.animate(withDuration: 0.05) {
+            UIView.animate(withDuration: 0.1) {
                 cell.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
         }
@@ -89,6 +89,10 @@ extension HeroesViewController: UITableViewDataSource {
             return cell
         }
         cell.heroesImage.kf.setImage(with: url)
+        
+        let bgSelectedCellView = UIView()
+        bgSelectedCellView.backgroundColor = .clear
+        cell.selectedBackgroundView = bgSelectedCellView
 
         return cell
     }

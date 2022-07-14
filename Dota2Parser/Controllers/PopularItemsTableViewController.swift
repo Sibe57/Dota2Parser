@@ -206,12 +206,27 @@ class PopularItemsTableViewController: UITableViewController {
         UIView.animate(withDuration: 0.15, delay: 0, options: [], animations: {
             cell.alpha = 1
         }, completion: nil)
+        
+        let bgSelectedCellView = UIView()
+        bgSelectedCellView.backgroundColor = .clear
+        cell.selectedBackgroundView = bgSelectedCellView
 
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell =  self.tableView.cellForRow(at: indexPath)
+        guard let cell = cell else { return }
+        UIView.animate(withDuration: 0.1,delay: 0, options:[.curveEaseOut]) {
+            cell.transform = cell.transform.scaledBy(x: 0.9, y: 0.90)
+        } completion: {_ in
+            UIView.animate(withDuration: 0.1) {
+                cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+        }
+        
         let item: Item?
         switch indexPath.section {
         case 0:
