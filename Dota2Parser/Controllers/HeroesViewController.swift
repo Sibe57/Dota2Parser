@@ -52,6 +52,11 @@ extension HeroesViewController: UITableViewDelegate {
         heroID = hero.id
         heroName = hero.localizedName.uppercased()
         heroIcon = hero.icon
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.cellForRow(at: indexPath)?.alpha = 0
+        } completion: {_ in
+            self.tableView.cellForRow(at: indexPath)?.alpha = 1
+        }
 
         performSegue(withIdentifier: "toPopularItems", sender: self)
     }
