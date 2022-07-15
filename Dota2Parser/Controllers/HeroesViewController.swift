@@ -35,8 +35,11 @@ class HeroesViewController: UIViewController {
     //MARK: - Navigations
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let tabBarController = segue.destination as? UITabBarController
+        guard let tabBarController = segue.destination as? HeroInfoTabBarController
         else { return }
+        
+        tabBarController.heroName = heroName
+        tabBarController.heroIcon = heroIcon
         
         guard let controllers = tabBarController.viewControllers else { return }
         
