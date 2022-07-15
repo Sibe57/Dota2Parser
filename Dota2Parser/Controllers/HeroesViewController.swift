@@ -35,12 +35,20 @@ class HeroesViewController: UIViewController {
     //MARK: - Navigations
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let popularItemsViewControler = segue.destination as!
-            PopularItemsTableViewController
+        guard let tabBarController = segue.destination as? UITabBarController
+        else { return }
         
-        popularItemsViewControler.heroID = heroID
-        popularItemsViewControler.heroName = heroName
-        popularItemsViewControler.heroIcon = heroIcon
+        guard let controllers = tabBarController.viewControllers else { return }
+        
+        for controller in controllers {
+            if let popularItemsViewControler = controller as?
+                PopularItemsTableViewController {
+                
+                popularItemsViewControler.heroID = heroID
+                popularItemsViewControler.heroName = heroName
+                popularItemsViewControler.heroIcon = heroIcon
+            }
+        }
     }
     
     
@@ -63,7 +71,7 @@ extension HeroesViewController: UITableViewDelegate {
             }
         }
 
-        performSegue(withIdentifier: "toPopularItems", sender: self)
+        performSegue(withIdentifier: "toHeroInfo", sender: self)
     }
 }
 
