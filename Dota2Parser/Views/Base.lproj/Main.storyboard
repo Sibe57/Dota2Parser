@@ -208,8 +208,8 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQI-A3-lQj">
-                                                    <rect key="frame" x="254" y="14" width="40" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQI-A3-lQj">
+                                                    <rect key="frame" x="262" y="14" width="40" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.6627694368" green="0.81272786860000001" blue="0.3304808736" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -224,7 +224,7 @@
                                                 <constraint firstItem="mQI-A3-lQj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hUu-HZ-2QU" secondAttribute="trailing" constant="16" id="Gtv-Xd-YLZ"/>
                                                 <constraint firstItem="hUu-HZ-2QU" firstAttribute="centerY" secondItem="akM-eh-we1" secondAttribute="centerY" id="Kma-Zf-qWQ"/>
                                                 <constraint firstItem="k88-Go-IPf" firstAttribute="centerY" secondItem="akM-eh-we1" secondAttribute="centerY" id="NQL-aa-Qpo"/>
-                                                <constraint firstItem="k88-Go-IPf" firstAttribute="leading" secondItem="mQI-A3-lQj" secondAttribute="trailing" constant="16" id="U6z-v0-uEi"/>
+                                                <constraint firstAttribute="trailing" secondItem="mQI-A3-lQj" secondAttribute="leading" constant="120" id="U6z-v0-uEi"/>
                                                 <constraint firstItem="8up-Bv-vR5" firstAttribute="top" secondItem="akM-eh-we1" secondAttribute="top" id="VSP-xS-rC5"/>
                                                 <constraint firstAttribute="trailing" secondItem="Bmr-3N-L5h" secondAttribute="trailing" constant="16" id="WxE-OA-fCo"/>
                                                 <constraint firstItem="Bmr-3N-L5h" firstAttribute="centerY" secondItem="akM-eh-we1" secondAttribute="centerY" id="mxd-bC-UxD"/>
@@ -418,10 +418,10 @@
             </objects>
             <point key="canvasLocation" x="-428" y="66"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Hero Info Tab Bar Controller-->
         <scene sceneID="m3J-q7-l9L">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZDC-WD-6ko" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZDC-WD-6ko" customClass="HeroInfoTabBarController" customModule="Dota2Parser" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="M9T-cK-ETO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VOc-1U-syU">
