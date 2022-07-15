@@ -43,7 +43,7 @@ class VersusStatisticTableViewController: UITableViewController {
         
         cell.winsLabel.text = "\(statistic.wins)"
         cell.losesLabel.text = "\(statistic.loses)"
-        cell.winrateLabel.text = String(format: "%.f", statistic.winRate)
+        cell.winrateLabel.text = String(format: "%.f", statistic.winRate) + "%"
         cell.winrateLabel.textColor = statistic.wins >= statistic.loses
             ? UIColor(named: "winGreen")
             : UIColor(named: "loseRed")
