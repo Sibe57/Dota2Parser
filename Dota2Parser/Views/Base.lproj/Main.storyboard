@@ -152,7 +152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="versusStatistic" id="DZa-hR-vyd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="versusStatistic" id="DZa-hR-vyd" customClass="StatisticTableViewCell" customModule="Dota2Parser" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DZa-hR-vyd" id="kqt-qi-CdV">
@@ -239,6 +239,13 @@
                                         <constraint firstItem="akM-eh-we1" firstAttribute="top" secondItem="kqt-qi-CdV" secondAttribute="top" constant="2" id="vrq-mH-MOa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="heroImage" destination="8up-Bv-vR5" id="KsH-Gk-0qh"/>
+                                    <outlet property="heroName" destination="hUu-HZ-2QU" id="61M-FP-BUo"/>
+                                    <outlet property="losesLabel" destination="DDF-Af-O6v" id="CgL-pQ-sGu"/>
+                                    <outlet property="winrateLabel" destination="mQI-A3-lQj" id="URQ-ee-ATf"/>
+                                    <outlet property="winsLabel" destination="hTd-BA-e11" id="hCC-uK-ZT3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
