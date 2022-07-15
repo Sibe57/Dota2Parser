@@ -17,14 +17,15 @@ class VersusStatisticTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(heroID)
         fetchData()
-        
     }
     
     private func fetchData() {
         NetworkManager.getVersusHeroStatistic(for: heroID) { statistics in
             self.statistics = statistics
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -36,7 +37,17 @@ class VersusStatisticTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "versusStatistic", for: indexPath)
+        let statistic = statistics[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "versusStatistic", for: indexPath) as! StatisticTableViewCell
+        
+        cell.winsLabel.text = "\(statistic.wins)"
+        cell.losesLabel.text = "\(statistic.loses)"
+        cell.winrateLabel.text = String(format: "%.f", statistic.winRate)
+        cell.winrateLabel.textColor = statistic.wins >= statistic.loses
+            ? UIColor(named: "winGreen")
+            : UIColor(named: "loseRed")
+        
         
         return cell
     }
