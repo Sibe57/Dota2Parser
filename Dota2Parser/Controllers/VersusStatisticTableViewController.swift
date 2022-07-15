@@ -9,6 +9,8 @@ import UIKit
 
 class VersusStatisticTableViewController: UITableViewController {
     
+    var heroes: [Hero]!
+    
     var heroID: Int!
     var heroName: String!
     var heroIcon: String!
@@ -28,6 +30,15 @@ class VersusStatisticTableViewController: UITableViewController {
             }
         }
     }
+    
+    private func searchHero(by id: Int) -> Hero? {
+        for hero in heroes {
+            if hero.id == id {
+                return hero
+            }
+        }
+        return nil
+    }
 
     // MARK: - Table view data source
 
@@ -37,10 +48,18 @@ class VersusStatisticTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let statistic = statistics[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "versusStatistic", for: indexPath) as! StatisticTableViewCell
         
+        let statistic = statistics[indexPath.row]
+        
+        guard let matchupsHero = searchHero(by: statistic.heroId) else { return cell }
+        
+        guard let url = URL(string: "http://cdn.dota2.com" + matchupsHero.img)
+        else { return cell }
+        
+        cell.heroImage.kf.setImage(with: url)
+        cell.heroName.text = matchupsHero.localizedName.uppercased()
         cell.winsLabel.text = "\(statistic.wins)"
         cell.losesLabel.text = "\(statistic.loses)"
         cell.winrateLabel.text = String(format: "%.f", statistic.winRate) + "%"

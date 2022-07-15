@@ -85,9 +85,9 @@
 		02725E9F28663A74000FF940 /* Dota2Parser */ = {
 			isa = PBXGroup;
 			children = (
-				02A7C5332869C55F000B20CA /* Controllers */,
-				02A7C5322869C547000B20CA /* Views */,
 				02A7C5312869C53D000B20CA /* Models */,
+				02A7C5322869C547000B20CA /* Views */,
+				02A7C5332869C55F000B20CA /* Controllers */,
 				02725EA028663A74000FF940 /* AppDelegate.swift */,
 				02725EA228663A74000FF940 /* SceneDelegate.swift */,
 				02725EA928663A74000FF940 /* Assets.xcassets */,
@@ -441,7 +441,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,7 +470,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -55,6 +55,7 @@ class HeroesViewController: UIViewController {
                 versusStatisticVC.heroID = heroID
                 versusStatisticVC.heroName = heroName
                 versusStatisticVC.heroIcon = heroIcon
+                versusStatisticVC.heroes = heroes
             }
         }
     }
