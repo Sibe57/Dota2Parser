@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VersusHeroStatistic {
+struct VersusHeroStatistic: Decodable {
     
     let heroId: Int
     let gamesPlayed: Int

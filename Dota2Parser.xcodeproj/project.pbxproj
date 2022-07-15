@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0229BBFF28816786008729B8 /* VersusHeroStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229BBFE28816786008729B8 /* VersusHeroStatistic.swift */; };
 		02725EA128663A74000FF940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02725EA028663A74000FF940 /* AppDelegate.swift */; };
 		02725EA328663A74000FF940 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02725EA228663A74000FF940 /* SceneDelegate.swift */; };
 		02725EA528663A74000FF940 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02725EA428663A74000FF940 /* HeroesViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0229BBFE28816786008729B8 /* VersusHeroStatistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusHeroStatistic.swift; sourceTree = "<group>"; };
 		02725E9D28663A74000FF940 /* Dota2Parser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dota2Parser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02725EA028663A74000FF940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02725EA228663A74000FF940 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				02725EB628663C03000FF940 /* Hero.swift */,
+				0229BBFE28816786008729B8 /* VersusHeroStatistic.swift */,
 				02725EB428663AAC000FF940 /* NetworkManager.swift */,
 				02A7C52B2868A90D000B20CA /* Items.swift */,
 			);
@@ -253,6 +256,7 @@
 			files = (
 				02A7C52C2868A90D000B20CA /* Items.swift in Sources */,
 				02A7C535286ADE23000B20CA /* ItemTableViewCell.swift in Sources */,
+				0229BBFF28816786008729B8 /* VersusHeroStatistic.swift in Sources */,
 				02725EB728663C04000FF940 /* Hero.swift in Sources */,
 				02A7C537286C97A6000B20CA /* WebViewController.swift in Sources */,
 				02725EB528663AAC000FF940 /* NetworkManager.swift in Sources */,

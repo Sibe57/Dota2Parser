@@ -81,4 +81,30 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    static func getVersusHeroStatistic(
+        for heroID: Int,
+        completion: @escaping (_ statistic: [VersusHeroStatistic]) -> Void
+    ) {
+        guard let url = URL(string: "https://api.opendota.com/api/heroes/\(heroID)/matchups")
+        else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let statistics = try decoder.decode([VersusHeroStatistic].self, from: data)
+                
+                DispatchQueue.main.async {
+                    completion(statistics)
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    
 }
