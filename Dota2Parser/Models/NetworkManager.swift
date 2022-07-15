@@ -84,7 +84,7 @@ class NetworkManager {
     
     static func getVersusHeroStatistic(
         for heroID: Int,
-        completion: @escaping (_ statistic: [VersusHeroStatistic]) -> Void
+        completion: @escaping (_ statistics: [VersusHeroStatistic]) -> Void
     ) {
         guard let url = URL(string: "https://api.opendota.com/api/heroes/\(heroID)/matchups")
         else { return }
@@ -104,7 +104,7 @@ class NetworkManager {
                 print(error)
             }
             
-        }
+        }.resume()
     }
     
 }
