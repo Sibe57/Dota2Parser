@@ -47,6 +47,11 @@ class HeroesViewController: UIViewController {
                 popularItemsViewControler.heroID = heroID
                 popularItemsViewControler.heroName = heroName
                 popularItemsViewControler.heroIcon = heroIcon
+            } else if let versusStatisticVC = controller as?
+                        VersusStatisticTableViewController {
+                versusStatisticVC.heroID = heroID
+                versusStatisticVC.heroName = heroName
+                versusStatisticVC.heroIcon = heroIcon
             }
         }
     }
