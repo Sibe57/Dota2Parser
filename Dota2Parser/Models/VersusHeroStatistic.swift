@@ -14,6 +14,6 @@ struct VersusHeroStatistic: Decodable {
     let wins: Int
     
     var loses: Int { gamesPlayed - wins }
-    var winRate: Double { Double(wins) / Double(gamesPlayed) }
+    var winRate: Double { Double(wins) / Double(gamesPlayed) * 100 }
     
 }
