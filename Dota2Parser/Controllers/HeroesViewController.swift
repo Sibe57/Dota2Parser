@@ -101,6 +101,7 @@ extension HeroesViewController: UITableViewDataSource {
         cell.heroName.text = hero.localizedName.uppercased()
         cell.roles.text = String(hero.roles.joined(separator: " "))
         cell.setMainAttrImage(for: hero.primaryAttr)
+        cell.setShadow(for: hero.primaryAttr)
         
         guard let url = URL(string: "http://cdn.dota2.com" + hero.img) else {
             return cell
