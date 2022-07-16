@@ -10,7 +10,7 @@ import UIKit
 class VersusStatisticTableViewController: UITableViewController {
     
     var heroes: [Hero]!
-    
+    var heroesByIDs: [Int: Hero] = [:]
     var heroID: Int!
     var heroName: String!
     var heroIcon: String!
@@ -20,6 +20,8 @@ class VersusStatisticTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        setBackground()
+        createHeroDicts()
     }
     
     private func fetchData() {
@@ -31,13 +33,15 @@ class VersusStatisticTableViewController: UITableViewController {
         }
     }
     
-    private func searchHero(by id: Int) -> Hero? {
+    private func createHeroDicts() {
         for hero in heroes {
-            if hero.id == id {
-                return hero
-            }
+            heroesByIDs[hero.id] = hero
         }
-        return nil
+    }
+    
+    private func setBackground() {
+        tableView.backgroundView = UIImageView(image: UIImage(named: "background"))
+        tableView.backgroundView?.contentMode = .scaleAspectFill
     }
 
     // MARK: - Table view data source
@@ -53,7 +57,7 @@ class VersusStatisticTableViewController: UITableViewController {
         
         let statistic = statistics[indexPath.row]
         
-        guard let matchupsHero = searchHero(by: statistic.heroId) else { return cell }
+        guard let matchupsHero = heroesByIDs[statistic.heroId] else { return cell }
         
         guard let url = URL(string: "http://cdn.dota2.com" + matchupsHero.img)
         else { return cell }
@@ -68,7 +72,7 @@ class VersusStatisticTableViewController: UITableViewController {
         ? UIColor(named: "winGreen")
         : UIColor(named: "loseRed")
         
-        UIView.setShadow(to: cell.blackView, with: winLoseColor ?? .green)
+        UIView.setShadow(to: cell.shadowView, with: winLoseColor ?? .green)
         cell.winrateLabel.textColor = winLoseColor!
       
         return cell
