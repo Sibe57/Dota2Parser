@@ -16,8 +16,11 @@ class StatisticTableViewCell: UITableViewCell {
     @IBOutlet weak var winrateLabel: UILabel!
     @IBOutlet weak var blackView: UIView!
     
+    @IBOutlet weak var shadowView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         blackView.layer.cornerRadius = 10
+        shadowView.layer.cornerRadius = 10
     }
 }

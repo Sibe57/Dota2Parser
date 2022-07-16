@@ -166,7 +166,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="0iG-1I-VmI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="versusStatistic" id="DZa-hR-vyd" customClass="StatisticTableViewCell" customModule="Dota2Parser" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="52"/>
@@ -178,6 +179,10 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akM-eh-we1">
                                             <rect key="frame" x="16" y="2" width="382" height="48"/>
                                             <subviews>
+                                                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBa-J3-tFT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
+                                                    <color key="backgroundColor" red="0.1640948653" green="0.14235821370000001" blue="0.19164144990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8up-Bv-vR5">
                                                     <rect key="frame" x="16" y="0.0" width="85.5" height="48"/>
                                                     <constraints>
@@ -231,23 +236,28 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Bmr-3N-L5h" firstAttribute="leading" secondItem="k88-Go-IPf" secondAttribute="trailing" constant="4" id="3E3-ZK-9ey"/>
                                                 <constraint firstItem="hUu-HZ-2QU" firstAttribute="leading" secondItem="8up-Bv-vR5" secondAttribute="trailing" constant="16" id="55d-46-bbs"/>
                                                 <constraint firstItem="mQI-A3-lQj" firstAttribute="centerY" secondItem="akM-eh-we1" secondAttribute="centerY" id="8sN-mD-GB4"/>
                                                 <constraint firstItem="8up-Bv-vR5" firstAttribute="leading" secondItem="akM-eh-we1" secondAttribute="leading" constant="16" id="Bnc-6j-5XS"/>
+                                                <constraint firstAttribute="bottom" secondItem="aBa-J3-tFT" secondAttribute="bottom" id="EaN-He-ji0"/>
                                                 <constraint firstItem="mQI-A3-lQj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hUu-HZ-2QU" secondAttribute="trailing" constant="16" id="Gtv-Xd-YLZ"/>
                                                 <constraint firstItem="hUu-HZ-2QU" firstAttribute="centerY" secondItem="akM-eh-we1" secondAttribute="centerY" id="Kma-Zf-qWQ"/>
                                                 <constraint firstItem="k88-Go-IPf" firstAttribute="centerY" secondItem="akM-eh-we1" secondAttribute="centerY" id="NQL-aa-Qpo"/>
+                                                <constraint firstItem="aBa-J3-tFT" firstAttribute="leading" secondItem="akM-eh-we1" secondAttribute="leading" id="OMI-9F-uo3"/>
                                                 <constraint firstAttribute="trailing" secondItem="mQI-A3-lQj" secondAttribute="leading" constant="120" id="U6z-v0-uEi"/>
                                                 <constraint firstItem="8up-Bv-vR5" firstAttribute="top" secondItem="akM-eh-we1" secondAttribute="top" id="VSP-xS-rC5"/>
                                                 <constraint firstAttribute="trailing" secondItem="Bmr-3N-L5h" secondAttribute="trailing" constant="16" id="WxE-OA-fCo"/>
+                                                <constraint firstItem="aBa-J3-tFT" firstAttribute="top" secondItem="akM-eh-we1" secondAttribute="top" id="dKK-Ap-OT4"/>
+                                                <constraint firstAttribute="trailing" secondItem="aBa-J3-tFT" secondAttribute="trailing" id="eL7-rZ-VCU"/>
                                                 <constraint firstItem="Bmr-3N-L5h" firstAttribute="centerY" secondItem="akM-eh-we1" secondAttribute="centerY" id="mxd-bC-UxD"/>
                                                 <constraint firstAttribute="bottom" secondItem="8up-Bv-vR5" secondAttribute="bottom" id="vSk-FV-slw"/>
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="akM-eh-we1" secondAttribute="bottom" constant="2" id="6Ym-Nz-Onm"/>
                                         <constraint firstAttribute="trailing" secondItem="akM-eh-we1" secondAttribute="trailing" constant="16" id="sy6-aZ-asZ"/>
@@ -255,11 +265,13 @@
                                         <constraint firstItem="akM-eh-we1" firstAttribute="top" secondItem="kqt-qi-CdV" secondAttribute="top" constant="2" id="vrq-mH-MOa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="blackView" destination="akM-eh-we1" id="XTD-zN-mO3"/>
                                     <outlet property="heroImage" destination="8up-Bv-vR5" id="KsH-Gk-0qh"/>
                                     <outlet property="heroName" destination="hUu-HZ-2QU" id="61M-FP-BUo"/>
                                     <outlet property="losesLabel" destination="DDF-Af-O6v" id="CgL-pQ-sGu"/>
+                                    <outlet property="shadowView" destination="aBa-J3-tFT" id="Iwm-EJ-G35"/>
                                     <outlet property="winrateLabel" destination="mQI-A3-lQj" id="URQ-ee-ATf"/>
                                     <outlet property="winsLabel" destination="hTd-BA-e11" id="hCC-uK-ZT3"/>
                                 </connections>
@@ -270,7 +282,7 @@
                             <outlet property="delegate" destination="HO5-vV-CKa" id="fNW-Zz-L2t"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="aH4-Q6-jCb"/>
+                    <tabBarItem key="tabBarItem" title="MatchUps" id="aH4-Q6-jCb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5V-qA-0ed" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -363,7 +375,7 @@
                             <outlet property="delegate" destination="jUt-iv-sPD" id="p46-BO-vNm"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="n6h-Oa-Feg"/>
+                    <tabBarItem key="tabBarItem" title="Items" id="n6h-Oa-Feg"/>
                     <navigationItem key="navigationItem" title="Items" id="KVs-z9-PjJ"/>
                     <connections>
                         <segue destination="59H-Ii-XKW" kind="show" identifier="webInfo" id="qGl-gB-MKA"/>
