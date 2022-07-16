@@ -14,16 +14,9 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var goldImage: UIImageView!
     @IBOutlet weak var backView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         backView.layer.cornerRadius = 10
-        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    
-
 }
