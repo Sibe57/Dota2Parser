@@ -9,9 +9,15 @@ import UIKit
 
 class StatisticTableViewCell: UITableViewCell {
     
-    @IBOutlet var heroImage: UIImageView!
-    @IBOutlet var heroName: UILabel!
-    @IBOutlet var winsLabel: UILabel!
-    @IBOutlet var losesLabel: UILabel!
-    @IBOutlet var winrateLabel: UILabel!
+    @IBOutlet weak var heroImage: UIImageView!
+    @IBOutlet weak var heroName: UILabel!
+    @IBOutlet weak var winsLabel: UILabel!
+    @IBOutlet weak var losesLabel: UILabel!
+    @IBOutlet weak var winrateLabel: UILabel!
+    @IBOutlet weak var blackView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        blackView.layer.cornerRadius = 10
+    }
 }
