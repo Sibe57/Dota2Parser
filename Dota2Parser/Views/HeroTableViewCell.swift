@@ -15,13 +15,6 @@ class HeroTableViewCell: UITableViewCell {
     @IBOutlet weak var heroesImage: UIImageView!
     
     func setMainAttrImage(for attr: String) {
-        switch attr {
-        case "str":
-            mainAttrImage.image = UIImage(named: "str")
-        case "agi":
-            mainAttrImage.image = UIImage(named: "agi")
-        default:
-            mainAttrImage.image = UIImage(named: "int")
-        }
+            mainAttrImage.image = UIImage(named: attr)
     }
 }
