@@ -291,7 +291,39 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5V-qA-0ed" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828.985507246377" y="580.58035714285711"/>
+            <point key="canvasLocation" x="1829" y="798"/>
+        </scene>
+        <!--Hero Info-->
+        <scene sceneID="8Uv-bZ-O72">
+            <objects>
+                <viewController id="eEo-3V-Q1E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wxl-Rp-lDO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4g8-kb-Wfw">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KFg-Rc-Viz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4g8-kb-Wfw" firstAttribute="top" secondItem="KFg-Rc-Viz" secondAttribute="top" id="AYY-ty-qzZ"/>
+                            <constraint firstItem="4g8-kb-Wfw" firstAttribute="leading" secondItem="KFg-Rc-Viz" secondAttribute="leading" id="Psd-jB-HGO"/>
+                            <constraint firstItem="KFg-Rc-Viz" firstAttribute="bottom" secondItem="4g8-kb-Wfw" secondAttribute="bottom" id="SMg-tr-B8u"/>
+                            <constraint firstItem="KFg-Rc-Viz" firstAttribute="trailing" secondItem="4g8-kb-Wfw" secondAttribute="trailing" id="eOe-nS-eTF"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Hero Info" id="5cM-8k-ADq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1iW-Ho-adQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="-621"/>
         </scene>
         <!--Items-->
         <scene sceneID="1AQ-B8-xwL">
@@ -388,7 +420,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlx-DD-ar9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1829" y="-352"/>
+            <point key="canvasLocation" x="1829" y="66"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="26c-om-a4b">
@@ -432,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GG2-pv-bzq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533" y="-352"/>
+            <point key="canvasLocation" x="2736" y="66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kbE-Vg-xxi">
@@ -466,6 +498,7 @@
                     <connections>
                         <segue destination="jUt-iv-sPD" kind="relationship" relationship="viewControllers" id="4oI-DX-B7P"/>
                         <segue destination="HO5-vV-CKa" kind="relationship" relationship="viewControllers" id="goI-DJ-eLU"/>
+                        <segue destination="eEo-3V-Q1E" kind="relationship" relationship="viewControllers" id="DPf-ee-dpw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2L-CP-rJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
